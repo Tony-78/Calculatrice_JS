@@ -1,0 +1,64 @@
+html, body, .container-fluid {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.test {
+    height: 45%;
+    width: 100%;
+}
+
+.test2 {
+    height: 55%;
+    width: 100%;
+}
+
+.result-details {
+    height: 30%;
+    width: 100%;
+}
+
+.result-details-size-position {
+    font-size:4rem;
+}
+
+.result {
+    height: 70%;
+    width: 100%;
+}
+
+.result-size-position {
+    font-size:8rem;
+    padding-top: 5rem;
+}
+
+.numbers-symbols {
+    height: 20%;
+    width: 100%;
+}
+
+button.btn.btn-light.btn-radius.col.text-center {
+    font-size:3rem;
+}
+
+button.btn.btn-light.btn-radius.col-6.text-center {
+    font-size:3rem;
+}
+
+button.btn.btn-light.btn-radius.col-3.text-center {
+    font-size:3rem;
+}
+
+button.btn.btn-info.btn-radius.col-3.text-center {
+    font-size:3rem;
+}
+
+button.btn.btn-info.btn-radius.col.text-center {
+    font-size:3rem;
+}
+
+button.btn.btn-warning.btn-radius.col.text-center {
+    font-size:3rem;
+}
