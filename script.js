@@ -13,23 +13,15 @@ const multiply = document.getElementById("multiply");
 const plus = document.getElementById("plus");
 const minus = document.getElementById("minus");
 const deleteNumber = document.getElementById("delete");
-const comma = document.getElementById("comma");
+const dot = document.getElementById("dot");
 const equal = document.getElementById("equal");
-
+const memoryResult = document.getElementById("memory");
 const resultDetails = document.getElementById("result-details");
 const result = document.getElementById("result");
 
 let sign = "";
 
-// Methode fonction nommée
-
-// numberZero.onclick = test;
-
-// function test (){
-//     resultDetails.innerHTML += numberZero.innerHTML;
-// };
-
-// Méthode fonction fléchée
+// Afficher le(s) chiffre(s) ou symbole sur la partie détail du display
 
 numberZero.onclick = () => {
   resultDetails.innerHTML += numberZero.innerHTML;
@@ -71,8 +63,8 @@ numberNine.onclick = () => {
   resultDetails.innerHTML += numberNine.innerHTML;
 };
 
-comma.onclick = () => {
-  resultDetails.innerHTML += comma.innerHTML;
+dot.onclick = () => {
+  resultDetails.innerHTML += ".";
 };
 
 divide.onclick = () => {
@@ -101,16 +93,17 @@ deleteNumber.onclick = () => {
 };
 
 
+
 equal.onclick = () => {
-  // on separe les deux nombre par rapport au signe sauvegarder dans calc, sur lequel l'utilisateur a cliquer sous forme de tableau
+  // on separe les deux nombres par rapport au signe sauvegarder dans sign, sur lequel l'utilisateur a cliqué sous forme d'array
   let numbers_tab = resultDetails.innerHTML.split(sign);
 
-  // on recupere les deux nombres different
-  let nb1 = parseFloat(numbers_tab[0]);
-  let nb2 = parseFloat(numbers_tab[1]);
+  // on récupère les deux nombres
+  let nb1 = Number(numbers_tab[0]);
+  let nb2 = Number(numbers_tab[1]);
   let total = "";
 
-  // on regarde quel signe a été sauvegarder dans la variable calc pour savoir quel calcul effectué
+  // on regarde quel signe a été sauvegardé dans la variable sign pour savoir quel type de calcul est à effectuer
   if (sign == "+") {
     total = nb1 + nb2;
   }
@@ -125,16 +118,15 @@ equal.onclick = () => {
     total = nb1 / nb2;
   }
   
-  result.innerHTML = total; // on affiche le total ligne finale
-
+  if (Number.isInteger(total)) {
+    result.innerHTML = total;
+  } else {
+    result.innerHTML = (Math.round(total * 100)/100).toFixed(2);
+  }
+  
 }
-   
 
-
-
-
-
-
-
-
-
+memoryResult.onclick = () => {
+    resultDetails.innerHTML = result.innerHTML;
+    result.innerHTML = "";
+};
